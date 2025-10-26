@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Website Portfolio Design – Renewable Energy Systems</title>
+  <style>
+    body {
+      font-family: "Segoe UI", Arial, sans-serif;
+      margin: 0;
+      background-color: #f5f7fa;
+      color: #222;
+    }
+
+    header {
+      background-color: #2563eb;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      font-size: 1.5em;
+      letter-spacing: 0.5px;
+    }
+
+    .container {
+      display: flex;
+      min-height: 100vh;
+    }
+
+    /* Left-side navigation */
+    nav {
+      width: 220px;
+      background-color: #1e3a8a;
+      padding: 20px;
+      color: white;
+    }
+
+    nav h2 {
+      font-size: 1.1em;
+      margin-bottom: 15px;
+      border-bottom: 1px solid #3b82f6;
+      padding-bottom: 5px;
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    nav ul li {
+      margin: 10px 0;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      background-color: #3b82f6;
+      display: block;
+      padding: 8px 12px;
+      border-radius: 6px;
+      transition: background 0.3s;
+    }
+
+    nav ul li a:hover {
+      background-color: #60a5fa;
+    }
+
+    main {
+      flex: 1;
+      padding: 30px;
+    }
+
+    section {
+      display: none;
+      background-color: white;
+      border-radius: 12px;
+      padding: 25px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    section.active {
+      display: block;
+    }
+
+    h3 {
+      color: #1e40af;
+      margin-top: 0;
+    }
+
+    .svg-wrap img {
+      width: 100%;
+      height: auto;
+      border: 1px solid #e5e7eb;
+      border-radius: 8px;
+      margin-top: 10px;
+    }
+
+    .caption {
+      font-size: 13px;
+      color: #6b7280;
+      margin-top: 6px;
+    }
+
+    .explanation {
+      margin-top: 20px;
+      line-height: 1.6;
+    }
+
+    footer {
+      background-color: #1e3a8a;
+      color: white;
+      text-align: center;
+      padding: 10px;
+      font-size: 0.9em;
+    }
+  </style>
+
+  <script>
+    // Script for switching between activities
+    function showActivity(id) {
+      document.querySelectorAll("section").forEach(sec => sec.classList.remove("active"));
+      document.getElementById(id).classList.add("active");
+    }
+  </script>
+</head>
+
+<body>
+  <header>
+    Website Portfolio Design – Renewable Energy Systems
+  </header>
+
+  <div class="container">
+    <nav>
+      <h2>Activities</h2>
+      <ul>
+        <!-- Left-side navigation labels -->
+        <li><a href="#" onclick="showActivity('act1')">Activity 1</a></li>
+        <li><a href="#" onclick="showActivity('act2')">Activity 2</a></li>
+        <li><a href="#" onclick="showActivity('act3')">Activity 3</a></li>
+      </ul>
+    </nav>
+
+    <main>
+      <!-- ================= Activity 1 ================= -->
+      <section id="act1" class="active">
+        <h3>Activity 1: Solar Water Heating System for a University Hostel</h3>
+
+        <!-- 💡 Replace the image below with your own diagram -->
+        <div class="svg-wrap">
+          <img src="WhatsApp Image 2025-10-26 at 21.50.37.jpeg"
+               alt="Block diagram of Solar Water Heating System (2000 L/day)">
+          <div class="caption">Figure 1 — Solar Water Heating System Architecture</div>
+        </div>
+
+        <!-- 💬 Replace or edit the explanation text below -->
+        <div class="explanation">
+          <strong>Source of Energy:</strong> The system utilizes solar energy as the main source, capturing sunlight through flat plate or evacuated tube collectors installed on the hostel rooftop. These collectors efficiently absorb solar radiation and convert it into thermal energy.<br><br>
+
+          <strong>Conversion Process:</strong> A working fluid, such as water or a heat transfer liquid, circulates through the collectors where it absorbs the sun’s heat. The heated fluid then flows to an insulated storage tank through a heat exchanger, transferring the absorbed heat to the water stored inside. This process continues during daylight hours until the desired temperature is achieved, ensuring a steady supply of hot water.<br><br>
+
+          <strong>Output/Utilization:</strong> The heated water from the storage tank is distributed for bathing, washing, and kitchen purposes throughout the hostel. Auxiliary electric or gas backup heaters can be used during cloudy days.<br><br>
+
+          <strong>Real-World Relevance:</strong> Solar water heating systems are highly energy-efficient and eco-friendly, reducing electricity consumption and operational costs for large facilities. They contribute to sustainable campus initiatives and help lower greenhouse gas emissions.
+        </div>
+      </section>
+
+      <!-- ================= Activity 2 ================= -->
+      <section id="act2">
+        <h3>Activity 2: Hybrid Solar PV and Wind Energy System for a Rural Health Clinic</h3>
+
+        <!-- 💡 Replace the image below with your own diagram -->
+        <div class="svg-wrap">
+          <img src="WhatsApp Image 2025-10-26 at 21.52.28.jpeg"
+               alt="Block diagram of Hybrid Solar PV and Wind System for Rural Health Clinic">
+          <div class="caption">Figure 2 — Hybrid Renewable Energy System Architecture</div>
+        </div>
+
+        <!-- 💬 Replace or edit the explanation text below -->
+        <div class="explanation">
+          <strong>Source of Energy:</strong> This system combines two renewable energy sources — solar radiation and wind energy — to provide reliable electricity for a rural health clinic. Solar photovoltaic (PV) panels convert sunlight into electrical energy, while a small wind turbine harnesses kinetic energy from the wind to generate additional power.<br><br>
+
+        <strong>Conversion Process:</strong> The DC electricity generated by both solar panels and the wind turbine passes through charge controllers to maintain battery health and regulate energy flow. The stored DC energy in the battery bank is then converted to AC using an inverter, supplying power to essential medical equipment and lighting within the clinic.<br><br>
+
+        <strong>Output/Utilization:</strong> The hybrid system ensures continuous electricity supply even during cloudy or windless periods, supporting refrigeration for vaccines, lighting, water purification units, and communication devices.<br><br>
+
+        <strong>Real-World Relevance:</strong> Such hybrid renewable systems are vital for rural and remote healthcare centers where grid connectivity is unreliable or unavailable. They enhance energy resilience, reduce dependency on diesel generators, and promote sustainable community healthcare operations.
+        </div>
+      </section>
+
+      <!-- ================= Activity 3 ================= -->
+      <section id="act3">
+        <h3>Activity 3: Wave Energy Conversion System for Coastal Desalination Plant</h3>
+
+        <!-- 💡 Replace the image below with your own diagram -->
+        <div class="svg-wrap">
+          <img src="WhatsApp Image 2025-10-26 at 21.50.41.jpeg"
+               alt="Block diagram of Wave Energy Conversion System integrated with Desalination Plant">
+          <div class="caption">Figure 3 — Wave Energy Conversion + Desalination Architecture</div>
+        </div>
+
+        <!-- 💬 Replace or edit the explanation text below -->
+        <div class="explanation">
+          <strong>Source of Energy:</strong> The system utilizes ocean wave energy available along coastal regions as a renewable power source. The continuous motion of waves provides mechanical energy that can be harvested through floating buoy systems or oscillating water columns positioned near the shore.<br><br>
+
+        <strong>Conversion Process:</strong> The mechanical motion generated by wave action drives hydraulic pistons or air turbines connected to an electric generator, converting the kinetic energy of waves into electrical energy. This electricity powers a desalination plant, typically using the reverse osmosis process to separate salt from seawater and produce freshwater.<br><br>
+
+        <strong>Output/Utilization:</strong> The system simultaneously generates clean electricity and provides a sustainable freshwater supply for nearby coastal communities, reducing dependence on grid electricity or fossil-fuel-based desalination.<br><br>
+
+        <strong>Real-World Relevance:</strong> Wave-powered desalination offers a practical solution for addressing water scarcity and energy challenges in coastal areas. It promotes the use of marine renewable resources, contributing to sustainable development and environmental conservation.
+
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <footer>
+    © 2025 | Renewable Energy Systems Portfolio – Abhinav Raghupatruni (RA2311003011311)
+  </footer>
+</body>
+</html>
