@@ -1,219 +1,311 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Website Portfolio Design – Renewable Energy Systems</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Renewable Energy Systems — Portfolio-Abhinav.Raghupatruni(RA2311003011311)-CSE CORE</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
   <style>
-    body {
-      font-family: "Segoe UI", Arial, sans-serif;
-      margin: 0;
-      background-color: #f5f7fa;
-      color: #222;
+    :root{
+      --bg: #0f172a;
+      --card: #0b1220;
+      --muted: #93a6c1;
+      --text: #e6eef8;
+      --accent-1: #00d4ff;
+      --accent-2: #7c3aed;
+      --accent-3: #34d399;
+      --glass: rgba(255,255,255,0.03);
+      --radius: 14px;
+      --shadow-lg: 0 18px 50px rgba(2,6,23,0.6);
+      --shadow-sm: 0 8px 24px rgba(2,6,23,0.45);
+      --ease: cubic-bezier(.2,.9,.3,1);
     }
 
-    header {
-      background-color: #2563eb;
-      color: white;
-      padding: 20px;
-      text-align: center;
-      font-size: 1.5em;
-      letter-spacing: 0.5px;
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:"Poppins", "Segoe UI", Arial, sans-serif;
+      background:
+        radial-gradient(800px 400px at 10% 8%, rgba(0,212,255,0.06), transparent),
+        linear-gradient(180deg, var(--bg), color-mix(in srgb, var(--bg) 80%, black 6%));
+      color:var(--text);
+      line-height:1.6;
+      transition: background 500ms var(--ease), color 350ms var(--ease);
     }
 
-    .container {
-      display: flex;
-      min-height: 100vh;
+    /* Header */
+    header{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:18px 28px;
+      position:sticky;
+      top:0;
+      z-index:60;
+      backdrop-filter: blur(6px);
+      background: linear-gradient(90deg, rgba(0,0,0,0.18), rgba(0,0,0,0.08));
+      border-bottom: 1px solid rgba(255,255,255,0.02);
+    }
+    .brand{display:flex;align-items:center;gap:12px;}
+    .logo{
+      width:48px;height:48px;border-radius:12px;
+      display:grid;place-items:center;
+      background:linear-gradient(135deg,var(--accent-1),var(--accent-2));
+      font-weight:800;color:#fff;
+      box-shadow:var(--shadow-sm);
+      transition:transform .3s var(--ease);
+    }
+    .logo:hover{transform:translateY(-4px) rotate(-6deg);}
+    .brand h1{margin:0;font-size:1.05rem;font-weight:700;}
+    .brand p{margin:0;font-size:0.85rem;color:var(--muted);}
+    .controls{display:flex;gap:10px;}
+    .btn{
+      background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));
+      color:var(--text);
+      border:1px solid rgba(255,255,255,0.03);
+      border-radius:10px;
+      padding:8px 12px;
+      font-weight:600;
+      cursor:pointer;
+      transition:transform .2s var(--ease);
+    }
+    .btn:hover{transform:translateY(-3px);}
+
+    /* Layout */
+    .wrap{
+      display:grid;
+      grid-template-columns:260px 1fr;
+      gap:28px;
+      max-width:1200px;
+      margin:26px auto;
+      padding:0 18px 60px;
     }
 
-    /* Left-side navigation */
-    nav {
-      width: 220px;
-      background-color: #1e3a8a;
-      padding: 20px;
-      color: white;
+    nav{
+      height:calc(100vh - 120px);
+      padding:18px;
+      border-radius:14px;
+      background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));
+      box-shadow:var(--shadow-sm);
+      position:sticky;top:88px;
+    }
+    nav h2{margin:0 0 12px;color:var(--accent-1);}
+    .nav-list{list-style:none;padding:0;margin:6px 0;display:flex;flex-direction:column;gap:12px;}
+    .nav-item{
+      display:flex;align-items:center;gap:10px;
+      padding:12px;
+      border-radius:12px;
+      color:var(--muted);
+      background:linear-gradient(180deg,rgba(255,255,255,0.01),rgba(255,255,255,0.00));
+      border:1px solid rgba(255,255,255,0.02);
+      transition:all .24s var(--ease);
+      cursor:pointer;
+    }
+    .nav-item:hover{transform:translateX(6px);color:var(--text);}
+    .nav-item.active{
+      background:linear-gradient(90deg,rgba(0,212,255,0.12),rgba(124,58,237,0.08));
+      color:var(--text);
+      border-left:4px solid var(--accent-2);
+    }
+    .nav-item .dot{
+      width:12px;height:12px;border-radius:999px;
+      background:linear-gradient(90deg,var(--accent-1),var(--accent-2));
     }
 
-    nav h2 {
-      font-size: 1.1em;
-      margin-bottom: 15px;
-      border-bottom: 1px solid #3b82f6;
-      padding-bottom: 5px;
+    main{min-width:320px;}
+
+    /* Card */
+    .card{
+      background:linear-gradient(180deg,var(--card),color-mix(in srgb,var(--card) 88%,black 2%));
+      padding:22px;
+      border-radius:12px;
+      box-shadow:var(--shadow-lg);
+      border:1px solid rgba(255,255,255,0.02);
+      margin-bottom:20px;
+      transition:transform .35s var(--ease),box-shadow .35s var(--ease);
+    }
+    .card:hover{transform:translateY(-6px);box-shadow:0 30px 80px rgba(2,6,23,0.7);}
+    .section-title{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;}
+    .section-title h3{margin:0;color:var(--accent-2);font-size:1.12rem;}
+    .section-title .small{color:var(--muted);font-size:0.92rem;}
+
+    .media{display:flex;gap:20px;flex-wrap:wrap;align-items:flex-start;}
+    .media .img-wrap{
+      flex:1 1 620px;
+      position:relative;
+      border-radius:10px;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,0.03);
+    }
+    .media img{width:100%;transition:transform .5s var(--ease);}
+    .media .img-wrap:hover img{transform:scale(1.02);}
+    .caption{color:var(--muted);margin-top:8px;font-size:0.92rem;}
+    .explain{margin-top:14px;font-size:0.96rem;}
+    .explain strong{color:var(--accent-3);}
+    .features{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px;}
+    .pill{
+      background:linear-gradient(90deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));
+      color:var(--muted);
+      padding:8px 12px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,0.02);
+      font-weight:600;
     }
 
-    nav ul {
-      list-style: none;
-      padding: 0;
-    }
+    /* Shapes */
+    .float-shape{position:absolute;pointer-events:none;filter:blur(20px);opacity:0.22;mix-blend-mode:screen;}
+    .shape-a{width:220px;height:220px;background:linear-gradient(90deg,var(--accent-1),var(--accent-2));border-radius:50%;right:-80px;top:-60px;}
+    .shape-b{width:180px;height:180px;background:linear-gradient(130deg,var(--accent-2),var(--accent-3));border-radius:36px;left:-60px;bottom:-80px;}
 
-    nav ul li {
-      margin: 10px 0;
-    }
+    /* Animations */
+    .reveal{opacity:0;transform:translateY(14px);animation:revealIn .56s var(--ease) forwards;}
+    @keyframes revealIn{to{opacity:1;transform:none;}}
+    .float-y{animation:floatY 6s ease-in-out infinite;}
+    @keyframes floatY{0%{transform:translateY(0)}50%{transform:translateY(-12px)}100%{transform:translateY(0)}}
 
-    nav ul li a {
-      color: white;
-      text-decoration: none;
-      background-color: #3b82f6;
-      display: block;
-      padding: 8px 12px;
-      border-radius: 6px;
-      transition: background 0.3s;
-    }
-
-    nav ul li a:hover {
-      background-color: #60a5fa;
-    }
-
-    main {
-      flex: 1;
-      padding: 30px;
-    }
-
-    section {
-      display: none;
-      background-color: white;
-      border-radius: 12px;
-      padding: 25px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    }
-
-    section.active {
-      display: block;
-    }
-
-    h3 {
-      color: #1e40af;
-      margin-top: 0;
-    }
-
-    .svg-wrap img {
-      width: 100%;
-      height: auto;
-      border: 1px solid #e5e7eb;
-      border-radius: 8px;
-      margin-top: 10px;
-    }
-
-    .caption {
-      font-size: 13px;
-      color: #6b7280;
-      margin-top: 6px;
-    }
-
-    .explanation {
-      margin-top: 20px;
-      line-height: 1.6;
-    }
-
-    footer {
-      background-color: #1e3a8a;
-      color: white;
-      text-align: center;
-      padding: 10px;
-      font-size: 0.9em;
+    footer{color:var(--muted);text-align:center;padding:20px;}
+    @media(max-width:960px){
+      .wrap{grid-template-columns:1fr;gap:14px;padding:8px;}
+      nav{position:relative;height:auto;display:flex;justify-content:center;}
+      .shape-a,.shape-b{display:none;}
     }
   </style>
-
-  <script>
-    // Script for switching between activities
-    function showActivity(id) {
-      document.querySelectorAll("section").forEach(sec => sec.classList.remove("active"));
-      document.getElementById(id).classList.add("active");
-    }
-  </script>
 </head>
 
 <body>
+  <div class="float-shape shape-a float-y" aria-hidden="true"></div>
+  <div class="float-shape shape-b float-y" aria-hidden="true"></div>
+
   <header>
-    Website Portfolio Design – Renewable Energy Systems
+    <div class="brand">
+      <div class="logo">RE</div>
+      <div>
+        <h1>Renewable Energy Portfolio-Abhinav.Raghupatruni(RA2311003011311)</h1>
+        <p>Solar / Wind / Wave — System Designs</p>
+      </div>
+    </div>
+    <div class="controls">
+      <button class="btn" id="toggleDecor">Toggle Shapes</button>
+    </div>
   </header>
 
-  <div class="container">
+  <div class="wrap">
     <nav>
       <h2>Activities</h2>
-      <ul>
-        <!-- Left-side navigation labels -->
-        <li><a href="#" onclick="showActivity('act1')">Activity 1</a></li>
-        <li><a href="#" onclick="showActivity('act2')">Activity 2</a></li>
-        <li><a href="#" onclick="showActivity('act3')">Activity 3</a></li>
+      <ul class="nav-list">
+        <li class="nav-item active" data-target="act1"><span class="dot"></span>Solar Water Heating</li>
+        <li class="nav-item" data-target="act2"><span class="dot"></span>Hybrid PV + Wind</li>
+        <li class="nav-item" data-target="act3"><span class="dot"></span>Wave Energy + Desalination</li>
       </ul>
     </nav>
 
     <main>
-      <!-- ================= Activity 1 ================= -->
-      <section id="act1" class="active">
-        <h3>Activity 1: Solar Water Heating System for a University Hostel</h3>
-
-        <!-- 💡 Replace the image below with your own diagram -->
-        <div class="svg-wrap">
-          <img src="WhatsApp Image 2025-10-26 at 21.50.37.jpeg"
-               alt="Block diagram of Solar Water Heating System (2000 L/day)">
-          <div class="caption">Figure 1 — Solar Water Heating System Architecture</div>
+      <article id="act1" class="card reveal">
+        <div class="section-title">
+          <h3>Activity 1 — Solar Water Heating</h3>
+          <div class="small">2000 L/day | Hostel</div>
         </div>
+        <div class="media">
+          <div class="img-wrap">
+            <img src="WhatsApp Image 2025-10-26 at 21.50.37.jpeg" alt="Solar system diagram">
+          </div>
+          <div style="flex:1 1 320px">
+            <div class="explain">
+              <p><strong>Source of Energy:</strong> Solar radiation captured by rooftop collectors.</p>
+              <p><strong>Conversion Process:</strong> Heat transfer fluid carries heat to an insulated tank via exchanger.
+              The solar water heating system designed for a university hostel with a daily hot water demand of 2000 liters consists of the following major components: solar collectors, storage tank, heat exchanger, piping network, and auxiliary heater. Solar energy is captured by flat plate collectors or evacuated tube collectors installed on the rooftop. These collectors absorb incident solar radiation and convert it into thermal energy. A working fluid (typically water or glycol mixture) circulates through the collectors, transferring absorbed heat to a heat exchanger located in the insulated storage tank.
 
-        <!-- 💬 Replace or edit the explanation text below -->
-        <div class="explanation">
-          <strong>Source of Energy:</strong> The system utilizes solar energy as the main source, capturing sunlight through flat plate or evacuated tube collectors installed on the hostel rooftop. These collectors efficiently absorb solar radiation and convert it into thermal energy.<br><br>
-
-          <strong>Conversion Process:</strong> A working fluid, such as water or a heat transfer liquid, circulates through the collectors where it absorbs the sun’s heat. The heated fluid then flows to an insulated storage tank through a heat exchanger, transferring the absorbed heat to the water stored inside. This process continues during daylight hours until the desired temperature is achieved, ensuring a steady supply of hot water.<br><br>
-
-          <strong>Output/Utilization:</strong> The heated water from the storage tank is distributed for bathing, washing, and kitchen purposes throughout the hostel. Auxiliary electric or gas backup heaters can be used during cloudy days.<br><br>
-
-          <strong>Real-World Relevance:</strong> Solar water heating systems are highly energy-efficient and eco-friendly, reducing electricity consumption and operational costs for large facilities. They contribute to sustainable campus initiatives and help lower greenhouse gas emissions.
+The heated water is stored in the tank, maintaining its temperature through proper insulation. During cloudy days or low radiation periods, an auxiliary electric or gas heater ensures an uninterrupted hot water supply. The control valves and sensors regulate the flow rate and maintain the desired temperature automatically. The hot water distribution system supplies water to bathrooms, kitchens, and laundry sections throughout the hostel.</p>
+              <p><strong>Output:</strong> Hot water for bathing and kitchen use.</p>
+              <div class="features">
+                <div class="pill">Eco-Friendly</div>
+                <div class="pill">Cost Efficient</div>
+                <div class="pill">Low Maintenance</div>
+              </div>
+            </div>
+          </div>
         </div>
-      </section>
+      </article>
 
-      <!-- ================= Activity 2 ================= -->
-      <section id="act2">
-        <h3>Activity 2: Hybrid Solar PV and Wind Energy System for a Rural Health Clinic</h3>
-
-        <!-- 💡 Replace the image below with your own diagram -->
-        <div class="svg-wrap">
-          <img src="WhatsApp Image 2025-10-26 at 21.52.28.jpeg"
-               alt="Block diagram of Hybrid Solar PV and Wind System for Rural Health Clinic">
-          <div class="caption">Figure 2 — Hybrid Renewable Energy System Architecture</div>
+      <article id="act2" class="card reveal" style="display:none">
+        <div class="section-title">
+          <h3>Activity 2 — Hybrid PV + Wind System</h3>
+          <div class="small">Rural Health Clinic</div>
         </div>
-
-        <!-- 💬 Replace or edit the explanation text below -->
-        <div class="explanation">
-          <strong>Source of Energy:</strong> This system combines two renewable energy sources — solar radiation and wind energy — to provide reliable electricity for a rural health clinic. Solar photovoltaic (PV) panels convert sunlight into electrical energy, while a small wind turbine harnesses kinetic energy from the wind to generate additional power.<br><br>
-
-        <strong>Conversion Process:</strong> The DC electricity generated by both solar panels and the wind turbine passes through charge controllers to maintain battery health and regulate energy flow. The stored DC energy in the battery bank is then converted to AC using an inverter, supplying power to essential medical equipment and lighting within the clinic.<br><br>
-
-        <strong>Output/Utilization:</strong> The hybrid system ensures continuous electricity supply even during cloudy or windless periods, supporting refrigeration for vaccines, lighting, water purification units, and communication devices.<br><br>
-
-        <strong>Real-World Relevance:</strong> Such hybrid renewable systems are vital for rural and remote healthcare centers where grid connectivity is unreliable or unavailable. They enhance energy resilience, reduce dependency on diesel generators, and promote sustainable community healthcare operations.
+        <div class="media">
+          <div class="img-wrap">
+            <img src="WhatsApp Image 2025-10-26 at 21.52.28.jpeg" alt="Hybrid system diagram">
+          </div>
+          <div style="flex:1 1 320px">
+            <div class="explain">
+              <p><strong>Source of Energy:</strong> Solar panels and wind turbine hybrid setup.</p>
+              <p><strong>Conversion Process:</strong> Power stored in batteries and inverted to AC for clinic use.The hybrid renewable energy system integrates solar photovoltaic (PV) panels and a wind turbine to provide reliable, continuous electricity for a rural health clinic where grid access is limited or unavailable. The conversion process begins when the solar PV panels convert sunlight directly into direct current (DC) electricity using the photovoltaic effect. Simultaneously, the wind turbine captures kinetic energy from moving air and converts it into mechanical energy, which is then transformed into electrical energy through a generator.</p>
+              <p><strong>Output:</strong> Reliable energy for lights, vaccines, and communication devices.</p>
+            </div>
+          </div>
         </div>
-      </section>
+      </article>
 
-      <!-- ================= Activity 3 ================= -->
-      <section id="act3">
-        <h3>Activity 3: Wave Energy Conversion System for Coastal Desalination Plant</h3>
-
-        <!-- 💡 Replace the image below with your own diagram -->
-        <div class="svg-wrap">
-          <img src="WhatsApp Image 2025-10-26 at 21.50.41.jpeg"
-               alt="Block diagram of Wave Energy Conversion System integrated with Desalination Plant">
-          <div class="caption">Figure 3 — Wave Energy Conversion + Desalination Architecture</div>
+      <article id="act3" class="card reveal" style="display:none">
+        <div class="section-title">
+          <h3>Activity 3 — Wave Energy + Desalination</h3>
+          <div class="small">Coastal Freshwater Supply</div>
         </div>
+        <div class="media">
+          <div class="img-wrap">
+            <img src="WhatsApp Image 2025-10-26 at 21.50.41.jpeg" alt="Wave energy diagram">
+          </div>
+          <div style="flex:1 1 320px">
+            <div class="explain">
+              <p><strong>Source of Energy:</strong> Mechanical energy from ocean waves.</p>
+              <p><strong>Conversion Process:</strong> Converts wave motion into power for desalination units.The wave energy conversion system utilizes the continuous motion of ocean waves to generate electricity that powers a desalination plant for freshwater production. The process begins with wave capture devices, such as oscillating water columns (OWC) or floating buoys, which harness the kinetic and potential energy of ocean waves.
 
-        <!-- 💬 Replace or edit the explanation text below -->
-        <div class="explanation">
-          <strong>Source of Energy:</strong> The system utilizes ocean wave energy available along coastal regions as a renewable power source. The continuous motion of waves provides mechanical energy that can be harvested through floating buoy systems or oscillating water columns positioned near the shore.<br><br>
-
-        <strong>Conversion Process:</strong> The mechanical motion generated by wave action drives hydraulic pistons or air turbines connected to an electric generator, converting the kinetic energy of waves into electrical energy. This electricity powers a desalination plant, typically using the reverse osmosis process to separate salt from seawater and produce freshwater.<br><br>
-
-        <strong>Output/Utilization:</strong> The system simultaneously generates clean electricity and provides a sustainable freshwater supply for nearby coastal communities, reducing dependence on grid electricity or fossil-fuel-based desalination.<br><br>
-
-        <strong>Real-World Relevance:</strong> Wave-powered desalination offers a practical solution for addressing water scarcity and energy challenges in coastal areas. It promotes the use of marine renewable resources, contributing to sustainable development and environmental conservation.
-
+In the mechanical-to-electrical conversion stage, the motion of waves drives hydraulic pistons, air turbines, or linear generators, converting the mechanical energy into rotational motion. This rotation powers an electric generator, producing electrical energy. The generated electricity is conditioned using power converters and controllers to maintain stable output suitable for desalination operations.</p>
+              <p><strong>Output:</strong> Produces clean water and electricity for coastal regions.</p>
+            </div>
+          </div>
         </div>
-      </section>
+      </article>
     </main>
   </div>
 
-  <footer>
-    © 2025 | Renewable Energy Systems Portfolio – Abhinav Raghupatruni (RA2311003011311)-CSE CORE(CTech)
-  </footer>
+  <footer>Renewable Energy Systems Portfolio – Abhinav Raghupatruni (RA2311003011311)-CSE CORE(CTech)</footer>
+
+  <script>
+    const navItems = document.querySelectorAll('.nav-item');
+    const sections = {
+      act1: document.getElementById('act1'),
+      act2: document.getElementById('act2'),
+      act3: document.getElementById('act3')
+    };
+
+    function showSection(id){
+      Object.values(sections).forEach(s => s.style.display = 'none');
+      sections[id].style.display = 'block';
+      sections[id].classList.remove('reveal');
+      void sections[id].offsetWidth;
+      sections[id].classList.add('reveal');
+      navItems.forEach(n => n.classList.toggle('active', n.dataset.target === id));
+    }
+
+    navItems.forEach(item => item.addEventListener('click', () => showSection(item.dataset.target)));
+
+    const hash = location.hash.replace('#','');
+    if(hash && sections[hash]) showSection(hash);
+    else showSection('act1');
+
+    // Toggle shapes visibility
+    const toggleDecor = document.getElementById('toggleDecor');
+    let shapesOn = true;
+    toggleDecor.addEventListener('click', () => {
+      shapesOn = !shapesOn;
+      document.querySelectorAll('.float-shape').forEach(s => s.style.display = shapesOn ? '' : 'none');
+    });
+  </script>
 </body>
 </html>
+
